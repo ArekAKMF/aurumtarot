@@ -1,6 +1,6 @@
 import { Container, Text, Heading } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
-import useFirebaseHook from '@/hooks/useFirebaseHook';
+// import useFirebaseHook from '@/hooks/useFirebaseHook';
 
 import { horoscop } from '@/const/gamesType'
 
