@@ -65,7 +65,7 @@ export const GamesTypeContainer = ({
               variant="title"
               marginTop="0"
               textDecoration="none!important"
-              marginBottom="0.5em"
+              margin={{base:"0 0 0.5em 0", sm:"1em 0", lg:"0 0 .5em 0", xl:"0 0 0.5em 0"}}
               padding="0 0 0 10px"
             >
               {title}
