@@ -24,11 +24,12 @@ export const Navigation = ({ lang }: Nav) => {
         <Box>
             <Container maxW="8xl">
                 <Flex
-                    height="230px"
+                    height={{ base: 'auto', sm: 'auto', md: '230px', xl: '230px' }}
                     justifyContent="space-between"
                     align="center"
                     padding="0"
                     alignItems="center"
+                    flexDirection={{ base: 'column', sm: 'column', md: 'row', xl: 'row' }}
                 >
                     <Box height="100%">
                         <Link
@@ -51,6 +52,7 @@ export const Navigation = ({ lang }: Nav) => {
                                     objectFit="cover"
                                 />
                                 <Text
+                                    display={{ base: 'none', sm: 'none', md: 'block',  }}
                                     align="center"
                                     justifyContent="center"
                                     alignItems="center"
@@ -66,6 +68,7 @@ export const Navigation = ({ lang }: Nav) => {
                     <Flex height="100%"
                         align="center"
                         padding="0"
+                        margin={{ base: '20px 0', sm: '20px 0 '  }}
                         alignItems="center">
                         {navList.map((el: any, index: number) => {
                             return (index !== 0 &&

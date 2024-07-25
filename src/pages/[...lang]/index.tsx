@@ -57,7 +57,7 @@ export default function Home({ language, path }: any) {
     const urlContact = ['/contact', '/kontakt'];
     const urlBlog = ['/blog'];
 
-    console.log('co mam', activePath?.includes(urlToSing), '000', activePath, 'urlToSing', urlToSing)
+    console.log('co mam', activePath?.includes(urlToSing), '000', activePath, 'urlToSing', '-----' , pageTitles[lang], 'AAAAAAAAa', pageTitles[lang][activePath])
 
     return (
         <>

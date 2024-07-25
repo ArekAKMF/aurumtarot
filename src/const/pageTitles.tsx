@@ -1,3 +1,5 @@
+import { gamesType, horoscop } from '@/const/gamesType'
+
 export type StaticText = {
     [key: string]: {
         [key: string]: {
@@ -6,68 +8,100 @@ export type StaticText = {
     };
 };
 
+
+const langs = ['pl', 'en', 'de', 'fr', 'es', 'nl', 'it']
+
+const pagestitle: any = []
+langs.forEach(lang => {
+    gamesType[lang].map((el: any) => {
+        if (!pagestitle[lang]) {
+            pagestitle[lang] = [];
+        }
+        pagestitle[lang].push({
+            [el.url.split('/')[2]]: {
+                title: el.name,
+                description: el.descshort
+            }
+        })
+    })
+});
+
+
+console.log(pagestitle['en'], 'pagestitle')
+
 export const pageTitles: StaticText = {
     pl: {
         index: {
-            title: 'Mistic Tarot',
-            description: 'Mistic description'
+            title: 'Aurum Tarot',
+            description: 'Aurum description'
 
         },
         '/blog': {
-            title: 'Mistic Tarot',
-            description: 'Mistic description'
+            title: 'Aurum Tarot',
+            description: 'Aurum description'
         },
-        '/uklad-3-kart': {
-            title: 'Układ 3 kart',
-            description: 'Mistic description'
-        }
+        ...pagestitle['pl'].flat() 
     },
     en: {
         index: {
-            title: 'Mistic Tarot EN',
-            description: 'Mistic description En'
+            title: 'Aurum Tarot',
+            description: 'Aurum description'
 
-        }
+        },
+        '/contact': {
+                title: 'Contact Aurum Tarot',
+            description: 'Aurum description'
+        },
+        ...pagestitle['en']
+       
     },
     de: {
         index: {
-            title: 'Mistic Tarot EN',
-            description: 'Mistic description En'
+            title: 'Aurum Tarot EN',
+            description: 'Aurum description En'
 
-        }
+        },
+        ...pagestitle['de']
     },
     fr: {
         index: {
-            title: 'Mistic Tarot EN',
-            description: 'Mistic description En'
+            title: 'Aurum Tarot EN',
+            description: 'Aurum description En'
 
-        }
+        },
+        ...pagestitle['fr']
 
     },
     es: {
         index: {
-            title: 'Mistic Tarot EN',
-            description: 'Mistic description En'
+            title: 'Aurum Tarot EN',
+            description: 'Aurum description En'
 
-        }
+        },
+        ...pagestitle['es']
 
     },
     nl: {
         index: {
-            title: 'Mistic Tarot EN',
-            description: 'Mistic description En'
+            title: 'Aurum Tarot EN',
+            description: 'Aurum description En'
 
-        }
+        },
+        ...pagestitle['nl']
 
     },
     it: {
         index: {
-            title: 'Mistic Tarot EN',
-            description: 'Mistic description En'
+            title: 'Aurum Tarot EN',
+            description: 'Aurum description En'
 
-        }
+        },
+        ...pagestitle['it']
 
     },
 };
+
+
+console.log(pageTitles, 'SSSSSSSS');
 
 export default pageTitles;
