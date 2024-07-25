@@ -1,17 +1,11 @@
 import React from "react";
-import {
-    Container,
-    Flex,
-    Text,
-    Heading,
-    Box,
-    Link,
-    Image,
-} from "@chakra-ui/react";
+import { Container, Flex, Heading, Box, Link } from "@chakra-ui/react";
 import staticText from "@/const/StaticText";
+import navigationList from "@/const/NavigationList";
 
 export default function Banner({ locale }: any) {
     const appText = staticText[locale];
+    const navList = navigationList[locale];
     return (
         <Container w="100%" maxW="12xl">
             <Flex
@@ -28,7 +22,13 @@ export default function Banner({ locale }: any) {
                     alignItems="center"
                     w="100%"
                 >
-                    <Link href="/" padding="20px">
+                    <Link
+                        href={navList[2].url}
+                        title={navList[2].name}
+                        padding="20px"
+                        background="#3182ce"
+                        borderRadius="10px"
+                    >
                         <Container maxW="6xl">
                             <Heading
                                 as="h4"
@@ -50,7 +50,16 @@ export default function Banner({ locale }: any) {
                             >
                                 {appText?.banerDesc}
                             </Heading>
-                            <Box>Wejdź</Box>
+                            <Heading
+                                as="h4"
+                                textAlign="center"
+                                fontSize="20px"
+                                color="#fff"
+                                marginTop="20px"
+                                fontWeight="800"
+                            >
+                                {appText?.banerButton}
+                            </Heading>
                         </Container>
                     </Link>
                 </Flex>

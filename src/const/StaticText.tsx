@@ -8,6 +8,7 @@ export type StaticText = {
     pl: {
       banerTitle: "Odkryj Świat Tarota",
       banerDesc: "Zdobądź Wgląd w Twoją Przyszłość!",
+      banerButton: "Wejdź",
       pageName: "Aurum Tarot",
       pageLanguage: "Wybierz język",
       frontPageDescription: `Witaj w fascynującym świecie Tarota - tajemniczej sztuki odczytywania kart, która jest zarówno źródłem mądrości, jak i inspiracją do odkrywania mistycyzmu. Nasza strona zaprasza Cię do głębokiej podróży przez karty Tarota, gdzie archetypy, symbole i intuicja łączą się w jedno, by rzucić światło na przeszłość, teraźniejszość i przyszłość.
@@ -29,6 +30,7 @@ export type StaticText = {
     en: {
       banerTitle: "Discover the World of Tarot",
       banerDesc: "Gain Insight into Your Future!",
+      banerButton: "Enter",
       pageName: "Aurum Tarot",
       pageLanguage: "Choose Language",
       frontPageDescription:
