@@ -2,6 +2,7 @@
 import {
   Container,
   Button,
+  Flex,
   Box,
   Grid,
   Alert,
@@ -16,13 +17,15 @@ import staticText from "@/const/StaticText";
 import { useGameType } from "@/hooks/useGameType";
 import { usePathname } from "next/navigation";
 
-const listTypeStatic = [["2", "2", "repeat(3, 1fr)"], ["1", "1", "repeat(1, 1fr)"]];
+const listTypeStatic = [
+  ["2", "2", "repeat(3, 1fr)"],
+  ["1", "1", "repeat(1, 1fr)"],
+];
 
 import { TfiLayoutListThumbAlt } from "react-icons/tfi";
 import { TfiLayoutMediaOverlay } from "react-icons/tfi";
 
 export default function CardGames({ locale, path }: any) {
-
   const appText = staticText[locale];
   const cartToTest = cardslist[locale]?.cards;
   const cards = useData();
@@ -49,23 +52,23 @@ export default function CardGames({ locale, path }: any) {
     setSelectedCard(sc);
     setCardTemp([...cartToTest]);
     setTimeout(() => {
-      scrollToElement()
-    }, 500)
+      scrollToElement();
+    }, 500);
   };
 
   const scrollToElement = () => {
-    const element = document.getElementById('gameCards');
+    const element = document.getElementById("gameCards");
     if (element) {
       window.scrollTo({
         top: element.offsetTop,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
 
   const changeList = (id: any) => {
     setListType(id);
-  }
+  };
 
   return (
     <Container maxW="8xl">
@@ -98,12 +101,22 @@ export default function CardGames({ locale, path }: any) {
           </Alert>
 
           <Box id="gameCards">
+            <Flex justifyContent="flex-end" alignItems="center">
             {selectedCard.length !== 0 && (
-              <Box marginBottom="20px">
-                <Button onClick={() => changeList(0)}><TfiLayoutMediaOverlay color={listType === 0 ? '#aaa' : '#000'} /></Button>
-                <Button onClick={() => changeList(1)}><TfiLayoutListThumbAlt color={listType === 1 ? '#aaa' : '#000'} /></Button>
-              </Box>
+              <Flex marginBottom="20px" justifyContent="space-between" width="100px">
+                <Button onClick={() => changeList(0)} cursor={listType === 0 ? 'default': 'pointer'}>
+                  <TfiLayoutMediaOverlay
+                    color={listType === 0 ? "#aaa" : "#000"}
+                  />
+                </Button>
+                <Button onClick={() => changeList(1)} cursor={listType === 1 ? 'default': 'pointer'}>
+                  <TfiLayoutListThumbAlt
+                    color={listType === 1 ? "#aaa" : "#000"}
+                  />
+                </Button>
+              </Flex>
             )}
+            </Flex>
             <Grid
               templateColumns={listTypeStatic[listType]}
               gap={6}
@@ -121,9 +134,10 @@ export default function CardGames({ locale, path }: any) {
                   layout={listType}
                 />
               ))}
-            </Grid></Box>
+            </Grid>
+          </Box>
         </>
       )}
     </Container>
-  )
+  );
 }

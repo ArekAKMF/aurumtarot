@@ -1,19 +1,19 @@
 import Head from "next/head";
-import { Inter, Quicksand } from "next/font/google";
+import { Quicksand } from "next/font/google";
 
 import { Navigation } from '@/components/Navigation'
 import Banner from '@/components/Banner';
 import pageTitles from '@/const/pageTitles'
-import { useGameType } from "@/hooks/useGameType";
 
 import GameTypesView from "@/components/GameTypesView";
 import SingTypeView from "@/components/SingTypeView";
-import ReloadView from "@/components/ReloadView";
 import SingGames from '@/components/SingGames'
 
 import { gamesType, horoscop } from '@/const/gamesType'
 import CardGames from '@/components/CardGames'
-import Contact from '@/components/Contact'
+import Contact from '@/pageComponent/Contact'
+import OmenPage from '@/pageComponent/OmenPage'
+import BlogPage from '@/pageComponent/BlogPage'
 
 import { useRouter } from 'next/router';
 const QuicksandFont = Quicksand({
@@ -34,7 +34,7 @@ export const getServerSideProps = async (context: any) => {
     return {
         props: {
             language: browserLanguage,
-            path
+            path,
         },
     };
 };
@@ -46,45 +46,57 @@ export default function Home({ language, path }: any) {
     let activePath = path.split(
         '/' + lang
     )[1]
-
-    if (activePath === '') {
+    if (activePath === '' || activePath === undefined) {
         activePath = 'index';
     }
 
     const urlToCards = gamesType[lang].map((el: any) => '/' + el.url.split('/')[2])
-    const urlToSing = horoscop[lang].map((el: any) => el.url.split('-')[0])
+    const urlToSing = horoscop[lang].map((el: any) => el.url)
 
     const urlContact = ['/contact', '/kontakt'];
     const urlBlog = ['/blog'];
 
-    console.log('co mam', activePath?.includes(urlToSing), '000', activePath, 'urlToSing', '-----' , pageTitles[lang], 'AAAAAAAAa', pageTitles[lang][activePath])
+    const staticUrl = [
+        "/wrozba",
+        "/wahrsagung",
+        "/divination",
+        "/divinazione",
+        "/adivinación",
+        "/waarzeggerij",
+        "/divination",
+      ];
+
+      const urlForSing  = activePath?.split('/')[1];
+      
 
     return (
         <>
             <Head>
-                <title>{pageTitles[lang]?.[activePath]?.title}</title>
-                <meta name="description" content={pageTitles[lang]?.[activePath]?.description} />
+                <title>{pageTitles[lang]?.[urlForSing ? '/'+urlForSing.split('-').slice(0, 3).join('-') : activePath]?.title}</title>
+                <meta name="description" content={pageTitles[lang]?.[urlForSing ? '/'+urlForSing.split('-').slice(0, 3).join('-') : activePath]?.description} />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className={`${QuicksandFont.className}`} >
                 {lang && (<><Navigation lang={lang} />
 
-                    <Banner locale={lang} />
+                    {!staticUrl.includes(activePath) && ( <Banner locale={lang} />)}
 
                     {activePath === 'index' && (<><GameTypesView locale={lang} /><SingTypeView locale={lang} /></>)}
                     {urlToCards?.includes(activePath) && (
                         <CardGames locale={lang} path={activePath} />
                     )}
-                    {activePath.includes(urlToSing) && (
+                    {urlForSing && urlToSing.includes(urlForSing.split('-').slice(0, 3).join('-')) && (
                         <SingGames locale={lang} path={activePath} />
                     )}
                     {urlContact.includes(activePath) && (
                         <Contact locale={lang} path={activePath} />
                     )}
                     {urlBlog.includes(activePath) && (
-                        // <Contact locale={lang} path={activePath}  />
-                        <div>BLOG</div>
+                        <BlogPage />
+                    )}
+                    {staticUrl.includes(activePath) && (
+                        <OmenPage locale={lang} path={activePath}  />
                     )}
 
                 </>)}

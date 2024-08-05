@@ -11,6 +11,30 @@ export type StaticText = {
 
 const langs = ['pl', 'en', 'de', 'fr', 'es', 'nl', 'it']
 
+const singTitles:any = {
+    pl : {
+        title: 'Horoskop dla znaku zodiaku'
+    },
+    en: {
+        title: 'Horoscope for zodiac sing'
+    },
+    de: {
+        title: 'Horoscope for zodiac sing'
+    },
+    fr: {
+        title: 'Horoscope for zodiac sing'
+    },
+    es: {
+        title: 'Horoscope for zodiac sing'
+    },
+    nl: {
+        title: 'Horoscope for zodiac sing'
+    },
+    it: {
+        title: 'Horoscope for zodiac sing'
+    },
+}
+
 const pagestitle: any = []
 langs.forEach(lang => {
     gamesType[lang].map((el: any) => {
@@ -18,29 +42,46 @@ langs.forEach(lang => {
             pagestitle[lang] = [];
         }
         pagestitle[lang].push({
-            [el.url.split('/')[2]]: {
+            ['/' + el.url.split('/')[2]]: {
                 title: el.name,
                 description: el.descshort
+            }
+        })
+    })
+    horoscop[lang].map((el: any) => {
+        if (!pagestitle[lang]) {
+            pagestitle[lang] = [];
+        }
+        pagestitle[lang].push({
+            ['/' + el.url]: {
+                title: singTitles[lang]?.title + " " + el.name,
+                description: el.desc
             }
         })
     })
 });
 
 
-console.log(pagestitle['en'], 'pagestitle')
+const addDataToObject = (obj: any, data: any) => {
+    data.forEach((item: any) => {
+        Object.keys(item).forEach(key => {
+            obj[key] = item[key];
+        });
+    });
+}
+
+
 
 export const pageTitles: StaticText = {
     pl: {
         index: {
             title: 'Aurum Tarot',
             description: 'Aurum description'
-
         },
         '/blog': {
             title: 'Aurum Tarot',
             description: 'Aurum description'
         },
-        ...pagestitle['pl'].flat() 
     },
     en: {
         index: {
@@ -49,11 +90,9 @@ export const pageTitles: StaticText = {
 
         },
         '/contact': {
-                title: 'Contact Aurum Tarot',
+            title: 'Contact Aurum Tarot',
             description: 'Aurum description'
         },
-        ...pagestitle['en']
-       
     },
     de: {
         index: {
@@ -61,7 +100,6 @@ export const pageTitles: StaticText = {
             description: 'Aurum description En'
 
         },
-        ...pagestitle['de']
     },
     fr: {
         index: {
@@ -69,8 +107,6 @@ export const pageTitles: StaticText = {
             description: 'Aurum description En'
 
         },
-        ...pagestitle['fr']
-
     },
     es: {
         index: {
@@ -78,8 +114,6 @@ export const pageTitles: StaticText = {
             description: 'Aurum description En'
 
         },
-        ...pagestitle['es']
-
     },
     nl: {
         index: {
@@ -87,8 +121,6 @@ export const pageTitles: StaticText = {
             description: 'Aurum description En'
 
         },
-        ...pagestitle['nl']
-
     },
     it: {
         index: {
@@ -96,12 +128,16 @@ export const pageTitles: StaticText = {
             description: 'Aurum description En'
 
         },
-        ...pagestitle['it']
-
     },
 };
 
 
-console.log(pageTitles, 'SSSSSSSS');
+addDataToObject(pageTitles['pl'], pagestitle['pl']);
+addDataToObject(pageTitles['en'], pagestitle['en']);
+addDataToObject(pageTitles['de'], pagestitle['de']);
+addDataToObject(pageTitles['fr'], pagestitle['fr']);
+addDataToObject(pageTitles['es'], pagestitle['es']);
+addDataToObject(pageTitles['nl'], pagestitle['nl']);
+addDataToObject(pageTitles['it'], pagestitle['it']);
 
 export default pageTitles;

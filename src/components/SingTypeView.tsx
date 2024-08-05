@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Checkerboard } from "@/components/Checkerboard";
-import { Container, Heading, SimpleGrid } from "@chakra-ui/react";
+import { Container, SimpleGrid } from "@chakra-ui/react";
 import { horoscop } from "@/const/gamesType";
+import staticText from "@/const/StaticText";
+import SectionTitle from '@/components/SectionTitle'
 
 interface SingTypeView {
   locale: string
@@ -20,6 +22,7 @@ const currentDate = () => {
 export default function SingTypeView({ locale }: SingTypeView) {
   const [activeDate, setActiveDate] = useState('')
   const gameList = horoscop[locale];
+  const appText = staticText[locale];
 
   useEffect(() => {
     if (activeDate === '') {
@@ -29,9 +32,7 @@ export default function SingTypeView({ locale }: SingTypeView) {
 
   return (
     <Container maxW="8xl">
-      <Heading as="h2" variant="sectionTitle">
-        tu sekcja
-      </Heading>
+      <SectionTitle title={appText.cardTypeSing} />
       <SimpleGrid autoColumns="true" columns={[1, 2, 3]}>
         {gameList?.map((el: any, index: number) => {
           return (
