@@ -59,7 +59,7 @@ const useFirebaseHook = (local: any) => {
           const id = doc.data().karta;
           if (id) {
             const selected = cardList?.allCards[local]?.cards?.find(
-              (el: any) => el.name === id
+              (el: any) => el.id === id
             );
             selected && setData(selected);
           }
