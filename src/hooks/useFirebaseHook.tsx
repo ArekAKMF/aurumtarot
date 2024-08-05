@@ -53,13 +53,14 @@ const useFirebaseHook = (local: any) => {
           data: data.currentDate,
           sing: data.section,
           karta: newCard.name,
+          cardId: newCard.cardId
         });
       } else {
         querySnapshot2.forEach((doc) => {
-          const id = doc.data().karta;
+          const id = doc.data().cardId;
           if (id) {
             const selected = cardList?.allCards[local]?.cards?.find(
-              (el: any) => el.id === id
+              (el: any) => el.cardId === id
             );
             selected && setData(selected);
           }
