@@ -53,7 +53,7 @@ export default function Home({ language, path }: any) {
     const urlToCards = gamesType[lang].map((el: any) => '/' + el.url.split('/')[2])
     const urlToSing = horoscop[lang].map((el: any) => el.url)
 
-    const urlContact = ['/contact', '/kontakt'];
+    const urlContact = ['/contact', '/kontakt', '/kontaktieren', '/contactez', '/contactanos', '/contattaci'];
     const urlBlog = ['/blog'];
 
     const staticUrl = [
@@ -72,12 +72,17 @@ export default function Home({ language, path }: any) {
       console.log(urlForSing, 'urlForSing')
 
       let urlTitle = ''
+      let singUrl = ''
 
       if(lang === 'fr'){
         urlTitle = urlForSing ? '/'+urlForSing.split('-').slice(0, 4).join('-') : activePath;
+        singUrl = urlForSing ?  urlForSing.split('-').slice(0, 4).join('-') : activePath;
       }else{
         urlTitle = urlForSing ? '/'+urlForSing.split('-').slice(0, 3).join('-') : activePath;
+        singUrl = urlForSing ? urlForSing.split('-').slice(0, 3).join('-') : activePath;;
       }
+
+      console.log( singUrl,  '-------------------------', urlToSing.includes(singUrl), '============================', urlToSing)
       
 
     return (
@@ -97,8 +102,8 @@ export default function Home({ language, path }: any) {
                     {urlToCards?.includes(activePath) && (
                         <CardGames locale={lang} path={activePath} />
                     )}
-                    {urlForSing && urlToSing.includes(urlForSing.split('-').slice(0, 3).join('-')) && (
-                        <SingGames locale={lang} path={activePath} />
+                    {urlForSing && urlToSing.includes(singUrl) && (
+                        <SingGames locale={lang} path={urlForSing} />
                     )}
                     {urlContact.includes(activePath) && (
                         <Contact locale={lang} path={activePath} />

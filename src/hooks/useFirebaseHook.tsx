@@ -63,6 +63,21 @@ const useFirebaseHook = (local: any) => {
               (el: any) => el.cardId === id
             );
             selected && setData(selected);
+          }else{
+
+            const cardCount = cardList.allCards[local].cards.length + 1;
+            const cardRandom = Math.floor(Math.random() * cardCount);
+            const newCard = cardList.allCards[local].cards[cardRandom];
+  
+            setData(newCard);
+            sendDataToFirebase({
+              data: data.currentDate,
+              sing: data.section,
+              karta: newCard.name,
+              cardId: newCard.cardId
+            });
+
+
           }
         });
       }

@@ -10,7 +10,6 @@ export default function SingGames({
 }: any) {
 
   const appText = staticText[locale];
-
   const [sing, setSing] = useState('')
   const [singDate, setSingDate] = useState('')
 
@@ -20,7 +19,7 @@ export default function SingGames({
 
     horoscop[locale].forEach((el: any) => {
       if (path.includes(el.url)) {
-        const sc = el.url.split('-')[2];
+        const sc = locale === 'fr' ? el.url.split('-')[3] : el.url.split('-')[2];
         const vir = path.split(sc)[1].split('-').slice(1, 4).join('-');
         setSing(sc)
         setSingDate(vir)
@@ -32,10 +31,8 @@ export default function SingGames({
   return (
     <Container maxW="8xl" marginBottom="24px">
 
-      <Heading as="h1" variant="pageTitle" textAlign="center" padding="10px 0" marginTop="40px">
+      <Heading as="h1" variant="pageTitle" textAlign="center" padding="10px 0" marginTop="40px" marginBottom="20px">
         {appText.cardSingTitleLine1} &quot;{data?.name}&quot; {appText.cardSingTitleLine2} &quot;{sing.toUpperCase()}&quot;
-      </Heading>
-      <Heading as="h1" variant="pageTitle" textAlign="center" padding="10px 0" marginTop="0px" marginBottom="20px">
         {appText.cardSingTitleLine3} {singDate}
       </Heading>
       <Divider margin="1rem 0" />

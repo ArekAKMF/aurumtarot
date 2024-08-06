@@ -22,5 +22,4 @@ const singTitles: any = {
   },
 };
 
-
 export default singTitles;

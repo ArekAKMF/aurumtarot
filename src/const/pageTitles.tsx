@@ -102,7 +102,7 @@ export const pageTitles: StaticText = {
             title: 'Aurum Tarot Blog - Einblicke in die Magie der Tarotkarten und Wahrsagungstipps',
             description: 'Aurum Tarot Blog - Entdecken Sie die Geheimnisse der Tarotkarten und nutzen Sie die Tipps unserer erfahrenen Tarotleser. Die Welt des Tarots in greifbarer Nähe!'
         },
-        '/contact': {
+        '/kontaktieren': {
             title: 'Aurum Tarot - Kontaktieren Sie uns',
             description: 'Kontaktieren Sie Aurum Tarot. Wir bieten professionelle Tarot-Lesungen und private Wahrsagungssitzungen an. Wir sind hier, um all Ihre Fragen zu beantworten.'
         },
@@ -121,7 +121,7 @@ export const pageTitles: StaticText = {
             title: 'Blog Aurum Tarot - Aperçus de la Magie des Cartes de Tarot et Conseils de Voyance',
             description: 'Blog Aurum Tarot - Découvrez les secrets des cartes de tarot et profitez des conseils de nos tarologues expérimentés. Le monde du tarot à portée de main!'
         },
-        '/contact': {
+        '/contactez': {
             title: 'Aurum Tarot - Contactez-nous',
             description: 'Contactez Aurum Tarot. Nous offrons des lectures de tarot professionnelles et des séances de voyance privées. Nous sommes ici pour répondre à toutes vos questions.'
         },
@@ -140,7 +140,7 @@ export const pageTitles: StaticText = {
             title: 'Blog Aurum Tarot - Perspectivas sobre la Magia de las Cartas del Tarot y Consejos de Adivinación',
             description: 'Blog Aurum Tarot - Descubre los secretos de las cartas del tarot y aprovecha los consejos de nuestros lectores de tarot experimentados. ¡El mundo del tarot al alcance de tu mano!'
         },
-        '/contact': {
+        '/contactanos': {
             title: 'AAurum Tarot - Contáctanos',
             description: 'Contacta con Aurum Tarot. Ofrecemos lecturas de tarot profesionales y sesiones privadas de adivinación. Estamos aquí para responder todas tus preguntas.'
         },
@@ -178,7 +178,7 @@ export const pageTitles: StaticText = {
             title: 'Blog Aurum Tarot - Approfondimenti sulla Magia delle Carte dei Tarocchi e Consigli di Divinazione',
             description: 'Blog Aurum Tarot - Scopri i segreti delle carte dei tarocchi e approfitta dei consigli dei nostri esperti lettori di tarocchi. Il mondo dei tarocchi a portata di mano!'
         },
-        '/contact': {
+        '/contattaci': {
             title: 'Aurum Tarot - Contattaci',
             description: 'Contatta Aurum Tarot. Offriamo letture di tarocchi professionali e sessioni private di divinazione. Siamo qui per rispondere a tutte le tue domande."'
         },
