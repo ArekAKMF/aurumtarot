@@ -10,10 +10,7 @@ export type StaticText = {
     };
 };
 
-
 const langs = ['pl', 'en', 'de', 'fr', 'es', 'nl', 'it']
-
-
 
 const pagestitle: any = []
 langs.forEach(lang => {

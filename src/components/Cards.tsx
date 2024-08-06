@@ -86,38 +86,16 @@ const cardLayout = (title: string, desc: any, description: string, image: string
     className={`animate__animated animate__bounce animate__delay-2s`}
   >
     <Box>
-      <CardHeader marginTop="24px" padding="0">
-        <Image
-          width="100%"
-          maxWidth="400px"
-          src={"../../karty/" + image}
-          alt={card}
-          alignItems="center"
-          justifyContent="center"
-          mix-blendmode="color-burn"
-        />
-      </CardHeader>
-    </Box>
-    <Box>
       <CardHeader marginTop="24px" marginBottom="12px" padding="0px 20px">
         <Heading
           as="h3"
           variant="sectionTitle"
           marginTop="0"
           marginBottom="0.5em"
-          textAlign="center"
+          textAlign="left"
           fontSize="2em"
         >
-          {title}
-        </Heading>
-        <Heading
-          as="h3"
-          variant="sectionTitle"
-          marginTop="0"
-          marginBottom="0"
-          textAlign="center"
-        >
-          {card}
+          {title}: {card}
         </Heading>
       </CardHeader>
       <CardBody padding="10px 20px">
