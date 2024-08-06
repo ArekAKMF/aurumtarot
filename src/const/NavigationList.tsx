@@ -27,11 +27,11 @@ const navigationList: any = {
         url: "/en/blog",
       },
       {
-        name: "Wróżba",
-        url: "/en/wrozba",
+        name: "Divination",
+        url: "/en/divination",
       },
       {
-        name: "Kontakt",
+        name: "Contact Us",
         url: "/en/contact",
       },
     ],
@@ -42,15 +42,15 @@ const navigationList: any = {
       },
       {
         name: "Blog",
-        url: "/blog",
+        url: "/de/blog",
       },
       {
-        name: "Wróżba",
-        url: "/wrozba",
+        name: "Wahrsagung",
+        url: "/de/wahrsagung",
       },
       {
-        name: "Kontakt",
-        url: "/kontakt",
+        name: "Kontaktieren",
+        url: "/de/kontaktieren",
       },
     ],
     fr: [
@@ -60,15 +60,15 @@ const navigationList: any = {
       },
       {
         name: "Blog",
-        url: "/blog",
+        url: "/fr/blog",
       },
       {
-        name: "Wróżba",
-        url: "/wrozba",
+        name: "Voyance",
+        url: "/fr/voyance",
       },
       {
-        name: "Kontakt",
-        url: "/kontakt",
+        name: "Contactez",
+        url: "/fr/contactez",
       },
     ],
     es: [
@@ -78,15 +78,15 @@ const navigationList: any = {
       },
       {
         name: "Blog",
-        url: "/blog",
+        url: "/es/blog",
       },
       {
-        name: "Wróżba",
-        url: "wrozba",
+        name: "Adivinacion",
+        url: "/es/adivinacion",
       },
       {
-        name: "Kontakt",
-        url: "kontakt",
+        name: "Contáctanos",
+        url: "/es/contactanos",
       },
     ],
     nl: [
@@ -96,15 +96,15 @@ const navigationList: any = {
       },
       {
         name: "Blog",
-        url: "blog",
+        url: "/nl/blog",
       },
       {
-        name: "Wróżba",
-        url: "wrozba",
+        name: "Waarzeggerij",
+        url: "/nl/waarzeggerij",
       },
       {
-        name: "Kontakt",
-        url: "kontakt",
+        name: "Contact",
+        url: "/nl/contact",
       },
     ],
     it: [
@@ -114,15 +114,15 @@ const navigationList: any = {
       },
       {
         name: "Blog",
-        url: "blog",
+        url: "/it/blog",
       },
       {
-        name: "Wróżba",
-        url: "divination",
+        name: "Divinazione",
+        url: "/it/divinazione",
       },
       {
-        name: "Kontakt",
-        url: "kontakt",
+        name: "Contattaci",
+        url: "/it/contattaci",
       },
     ],
   } as const;

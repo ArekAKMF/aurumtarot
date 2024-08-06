@@ -58,21 +58,32 @@ export default function Home({ language, path }: any) {
 
     const staticUrl = [
         "/wrozba",
+        "/divination",
         "/wahrsagung",
-        "/divination",
-        "/divinazione",
-        "/adivinación",
+        "/voyance",
+        "/adivinacion",
         "/waarzeggerij",
-        "/divination",
+        "/divinazione",
       ];
 
       const urlForSing  = activePath?.split('/')[1];
+
+
+      console.log(urlForSing, 'urlForSing')
+
+      let urlTitle = ''
+
+      if(lang === 'fr'){
+        urlTitle = urlForSing ? '/'+urlForSing.split('-').slice(0, 4).join('-') : activePath;
+      }else{
+        urlTitle = urlForSing ? '/'+urlForSing.split('-').slice(0, 3).join('-') : activePath;
+      }
       
 
     return (
         <>
             <Head>
-                <title>{pageTitles[lang]?.[urlForSing ? '/'+urlForSing.split('-').slice(0, 3).join('-') : activePath]?.title}</title>
+                <title>{pageTitles[lang]?.[urlTitle]?.title}</title>
                 <meta name="description" content={pageTitles[lang]?.[urlForSing ? '/'+urlForSing.split('-').slice(0, 3).join('-') : activePath]?.description} />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
